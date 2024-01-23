@@ -3,17 +3,17 @@ name : Check code quality
 jobs:
   code-quality:
     runs-on: ubuntu-latest
-      steps:
+    steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       - name: Install dependecies
-        run: pip install black ruff isort mypy
+         run: pip install black ruff isort mypy
       - name: Run formatters
-        run: pyhton  -m black --check . && python -m isort --check
+         run: pyhton  -m black --check . && python -m isort --check
       - name: Run linter
-        run: python -m ruff .
+         run: python -m ruff .
       - name: Run static type checker
-        run: python -m mypy .
+         run: python -m mypy .
       
