@@ -1,5 +1,7 @@
 name : Check code quality
 
+on: [pull_request]
+
 jobs:
   code-quality:
     runs-on: ubuntu-latest
@@ -9,11 +11,11 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install dependencies
-       run: pip install black ruff isort mypy
+        run: pip install black ruff isort mypy
       - name: Run formatters
-       run: pyhton  -m black --check . && python -m isort --check
+        run: pyhton  -m black --check . && python -m isort --check
       - name: Run linter
-       run: python -m ruff .
+        run: python -m ruff .
       - name: Run static type checker
         run: python -m mypy .
       
