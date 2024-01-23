@@ -3,7 +3,6 @@ name : Check code quality
 jobs:
   code-quality:
     runs-on: ubuntu-latest
-    steps:
       steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
