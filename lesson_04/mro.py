@@ -1,7 +1,6 @@
 import time
 from pathlib import Path
 
-
 user_input = input("Enter the string for search: ")
 
 file_path = Path("rockyou.txt")
