@@ -33,7 +33,7 @@ for player in team:
     print(player)
 
 
-print("\n Unique Players names:")
+print("\nUnique Players names:")
 for player in dedup(team):
     print(player)
 
