@@ -20,7 +20,7 @@ def player_add(name: str, age: int, number: int) -> dict:
     for player_ in team:
         if player_["number"] == number:
             print(f"Player with this number {number} exists\n")
-            return None
+            return {}
     player: dict = {
         "name": name,
         "age": age,
