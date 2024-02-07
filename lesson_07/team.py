@@ -16,11 +16,11 @@ def repr_players(players: list[dict]):
         )
 
 
-def player_add(name: str, age: int, number: int) -> dict:
+def player_add(name: str, age: int, number: int) -> dict | None:
     for player_ in team:
         if player_["number"] == number:
             print(f"Player with this number {number} exists\n")
-            return {}
+            return None
     player: dict = {
         "name": name,
         "age": age,
