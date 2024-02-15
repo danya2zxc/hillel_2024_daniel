@@ -9,70 +9,65 @@ currency_exchange = {
         "CHF": 0.94,
         "UAH": 40.89,
     },
-    "CHF": {"USD": 1.14, "EUR": 1.06, "UAH": 43.36, "CHF": 1},
+    "CHF": {
+        "USD": 1.14,
+        "EUR": 1.06,
+        "UAH": 43.36,
+        "CHF": 1,
+    },
     "UAH": {
-        "USD": 0.026,
-        "EUR": 0.026,
-        "CHF": 0.023,
+        "USD": 0.02,
+        "EUR": 0.02,
+        "CHF": 0.02,
     },
 }
 
 
 class Price:
-    def __init__(self, value: int, currency: str) -> None:
+    def __init__(self, value: int | float, currency: str) -> None:
         self.value = value
         self.currency = currency
 
     def __str__(self) -> str:
         return f"Price: {self.value} {self.currency}"
 
-    def __add__(self, other):
+    def __add__(self, other: "Price") -> "Price":
         if self.currency == other.currency:
             return Price(
-                value=self.value + other.value, currency=self.currency
+                value=(self.value + other.value), currency=self.currency
             )
         else:
-            return self._convert_and_add(other)
+            self_chf = self._convert_to_chf()
+            other_chf = other._convert_to_chf()
+            total_chf = self_chf + other_chf
+            return self._convert_from_chf(total_chf)
 
-    def __sub__(self, other):
+    def __sub__(self, other: "Price") -> "Price":
         if self.currency == other.currency:
             return Price(
                 value=self.value - other.value, currency=self.currency
             )
         else:
-            return self._convert_and_sub(other)
+            self_chf = self._convert_to_chf()
+            other_chf = other._convert_to_chf()
+            total_chf = self_chf - other_chf
 
-    def _convert_and_add(self, other):
-        self_chf = self._convert_to_chf()
-        other_chf = other._convert_to_chf()
-        total_chf = self_chf + other_chf
-        return self._convert_from_chf(total_chf)
+            return self._convert_from_chf(total_chf)
 
-    def _convert_and_sub(self, other):
-        self_chf = self._convert_to_chf()
-        other_chf = other._convert_to_chf()
-        total_chf = self_chf - other_chf
-        return self._convert_from_chf(total_chf)
-
-    def _convert_to_chf(self):
+    def _convert_to_chf(self) -> float:
         return self.value * currency_exchange[self.currency]["CHF"]
 
-    def _convert_from_chf(self, chf_value):
-        return Price(
-            value=round(
-                chf_value / currency_exchange[self.currency]["CHF"], 2
-            ),
-            currency=self.currency,
-        )
+    def _convert_from_chf(self, chf_value: float) -> "Price":
+        converted_value = chf_value / currency_exchange[self.currency]["CHF"]
+        rounded_value = round(converted_value, 2)
+        return Price(value=rounded_value, currency=self.currency)
 
-    def convert_to(self, target_currency):
-        return Price(
-            value=round(
-                self.value * currency_exchange[self.currency][target_currency],
-                2,
-            ),
-            currency=target_currency,
+    def convert_to(self, target_currency: str) -> "Price":
+        converted_value = (
+            self.value * currency_exchange[self.currency][target_currency]
         )
+        rounded_value = round(converted_value, 2)
+        return Price(value=rounded_value, currency=self.currency)
 
 
 # Пример использования
@@ -107,12 +102,12 @@ converted_price = flight.convert_to("UAH")
 print(converted_price)
 
 
-class Product:
-    def __init__(self, name: str, price: Price):
-        self.name = name
-        self.price = price
+# class Product:
+#     def __init__(self, name: str, price: Price):
+#         self.name = name
+#         self.price = price
 
 
-class PaymentProcessor:
-    def checkout(self, product: Product, price: Price):
-        pass
+# class PaymentProcessor:
+#     def checkout(self, product: Product, price: Price):
+#         pass
