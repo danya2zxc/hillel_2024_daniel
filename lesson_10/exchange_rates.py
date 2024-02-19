@@ -1,12 +1,11 @@
+import requests
 import json
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 
-import requests
-
-file_n = Path("./lesson_10/logs.json")
-
+file_path = Path(__file__).resolve().parent
+file_n = file_path / 'logs.json' 
 
 ALPHAVANTAGE_API_KEY = "PHYESMU9NOE57A6K"
 MIDDLE_CURRENCY = "CHF"
@@ -52,21 +51,15 @@ def convert(value: float, currency_from: str, currency_to: str) -> float:
     coefficient: float = float(
         result["Realtime Currency Exchange Rate"]["5. Exchange Rate"]
     )
-    # logs_data = {
-    #     "currency_from": currency_from,
-    #     "currency_to": currency_to,
-    #     "rate": coefficient,
-    #     "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-    #     }
-    with open(file_n, "a") as file:
+    with open(file_n, 'a') as file:
         logs_data = {
             "currency_from": currency_from,
             "currency_to": currency_to,
             "rate": coefficient,
             "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         }
-        json.dump({"results": [logs_data]}, file, indent=3)
-
+        json.dump(logs_data, file, indent=3)
+        file.write('\n')  
     return value * coefficient
 
 

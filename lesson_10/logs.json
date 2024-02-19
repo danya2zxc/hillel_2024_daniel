@@ -259,4 +259,93 @@
          "timestamp": "2024-02-18 20:38:36"
       }
    ]
+}{
+   "currency_from": "USD",
+   "currency_to": "CHF",
+   "rate": 0.88086,
+   "timestamp": "2024-02-19 15:41:31"
+}
+{
+   "currency_from": "UAH",
+   "currency_to": "CHF",
+   "rate": 0.02314,
+   "timestamp": "2024-02-19 15:41:35"
+}
+{
+   "currency_from": "CHF",
+   "currency_to": "USD",
+   "rate": 1.13509,
+   "timestamp": "2024-02-19 15:41:36"
+}
+{
+   "currency_from": "USD",
+   "currency_to": "CHF",
+   "rate": 0.88126,
+   "timestamp": "2024-02-19 15:54:00"
+}
+{
+   "currency_from": "UAH",
+   "currency_to": "CHF",
+   "rate": 0.02314,
+   "timestamp": "2024-02-19 15:54:02"
+}
+{
+   "currency_from": "CHF",
+   "currency_to": "USD",
+   "rate": 1.1345,
+   "timestamp": "2024-02-19 15:54:03"
+}
+{
+   "currency_from": "USD",
+   "currency_to": "CHF",
+   "rate": 0.88126,
+   "timestamp": "2024-02-19 15:54:06"
+}
+{
+   "currency_from": "UAH",
+   "currency_to": "CHF",
+   "rate": 0.02314,
+   "timestamp": "2024-02-19 15:54:06"
+}
+{
+   "currency_from": "CHF",
+   "currency_to": "USD",
+   "rate": 1.1345,
+   "timestamp": "2024-02-19 15:54:07"
+}
+{
+   "currency_from": "USD",
+   "currency_to": "CHF",
+   "rate": 0.88126,
+   "timestamp": "2024-02-19 15:54:08"
+}
+{
+   "currency_from": "UAH",
+   "currency_to": "CHF",
+   "rate": 0.02314,
+   "timestamp": "2024-02-19 15:54:09"
+}
+{
+   "currency_from": "CHF",
+   "currency_to": "USD",
+   "rate": 1.1345,
+   "timestamp": "2024-02-19 15:54:09"
+}
+{
+   "currency_from": "USD",
+   "currency_to": "CHF",
+   "rate": 0.88104,
+   "timestamp": "2024-02-19 15:55:34"
+}
+{
+   "currency_from": "UAH",
+   "currency_to": "CHF",
+   "rate": 0.02314,
+   "timestamp": "2024-02-19 15:55:36"
+}
+{
+   "currency_from": "CHF",
+   "currency_to": "USD",
+   "rate": 1.13483,
+   "timestamp": "2024-02-19 15:55:36"
 }
