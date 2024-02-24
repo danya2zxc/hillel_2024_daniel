@@ -1,9 +1,9 @@
 from abc import ABC, abstractmethod
-from datetime import datetime 
+from datetime import datetime
 from typing import Any
 
-from .api import FacebookAPI, TwitterAPI, YoutubeAPI # type: ignore
-from .models import Post, SocialChannel, User # type: ignore
+from .api import FacebookAPI, TwitterAPI, YoutubeAPI  # type: ignore
+from .models import Post, SocialChannel, User  # type: ignore
 
 
 def catch_errors(func: Any) -> Any:
