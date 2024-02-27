@@ -6,9 +6,9 @@ class SocialChannel:
     channel_type: str
     followers: int
 
-    def __iter__(self):
-        yield self.channel_type
-        yield self.followers
+    # def __iter__(self):
+    #     yield self.channel_type
+    #     yield self.followers
 
 
 @dataclass

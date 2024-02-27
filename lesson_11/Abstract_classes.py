@@ -35,7 +35,7 @@ class post_to_facebook(ChannelProvider):
 class post_to_twitter(ChannelProvider):
     def post_a_message(self, message: str) -> None:
         print(
-            f"Post '{message}' on {self.channel_type}"
+            f"Post '{message}' on {self.channel_type} "
             f"with {self.followers} followers"
         )
         return
