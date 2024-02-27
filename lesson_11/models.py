@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from datetime import datetime
 
 
 @dataclass
@@ -7,15 +6,22 @@ class SocialChannel:
     channel_type: str
     followers: int
 
+    def __iter__(self):
+        yield self.channel_type
+        yield self.followers
+
 
 @dataclass
 class Post:
     message: str
-    timestamp: datetime
+    timestamp: float
+
+    def __iter__(self):
+        yield self.message
+        yield self.timestamp
 
 
 @dataclass
 class User:
-    user_name: str
     social: SocialChannel
     post: Post
