@@ -61,13 +61,11 @@ def provider_message(channel: SocialChannel) -> ChannelProvider:
 def process_schedule(posts: list[Post], channels: list[SocialChannel]) -> None:
     for post in posts:
         message, timestamp = post
-        timestamp = int(timestamp)
+        timestamp = float(timestamp)
 
         for channel in channels:
-            if timestamp < datetime.now().timestamp():
-                provider = provider_message(
-                    channel=channel,
-                )
+            if timestamp <= datetime.now().timestamp():
+                provider = provider_message(channel=channel)
                 provider.post_a_message(str(message))
 
 
