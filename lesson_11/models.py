@@ -6,10 +6,6 @@ class SocialChannel:
     channel_type: str
     followers: int
 
-    # def __iter__(self):
-    #     yield self.channel_type
-    #     yield self.followers
-
 
 @dataclass
 class Post:
@@ -19,9 +15,3 @@ class Post:
     def __iter__(self):
         yield self.message
         yield self.timestamp
-
-
-@dataclass
-class User:
-    social: SocialChannel
-    post: Post
