@@ -1,18 +1,19 @@
 name : Check code quality
 
+on: [pull_request]
+
 jobs:
   code-quality:
     runs-on: ubuntu-latest
     steps:
-      steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install dependecies
-        run: pip install black ruff isort mypy
+      - name: Install dependencies
+        run: pip install black ruff isort mypy pydantic[mypy] types-requests cryptography
       - name: Run formatters
-        run: pyhton  -m black --check . && python -m isort --check
+        run: python -m black --check . && python -m isort --check .
       - name: Run linter
         run: python -m ruff .
       - name: Run static type checker
